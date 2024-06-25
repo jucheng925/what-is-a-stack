@@ -9,11 +9,17 @@ class Stack {
   // add item to top of stack if not full
   // if full throw error
   push(item) {
+    if (this.stack.length > 10) {
+      throw new Error("Stack is full");
+    } else {
+      this.stack.push(item)
+    }
 
   }
 
   // remove item from top of stack and return it
   pop() {
+    return this.stack.pop()
 
   }
 
@@ -51,6 +57,29 @@ class Stack {
 
 if (require.main === module) {
   // add your own tests in here
+  const stack = new Stack()
+  console.log("testing stack.push..expecting.. stack =[1]")
+  stack.push(1)
+  stack.push(2)
+  console.log(stack)
+  stack.push(3)
+  stack.push(4)
+  stack.push(5)
+  stack.push(6)
+  stack.push(7)
+  stack.push(8)
+  stack.push(9)
+  stack.push(10)
+  console.log(stack)
+  stack.push(11)
+  console.log(stack)
+
+  console.log("")
+  console.log("testing pop")
+  console.log(stack)
+  console.log(stack.pop())
+  console.log(stack)
+
 }
 
 module.exports = Stack;
